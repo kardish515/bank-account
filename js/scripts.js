@@ -18,21 +18,37 @@ $(document).ready(function(){
     var name = $("#user-name").val();
     var initialDeposit = parseInt($("#initial-deposit").val());
     var newBankAccount = new BankAccount(name, initialDeposit);
-    $(".output").append("$" + newBankAccount.balance);
-    $(".output").show();
     $(".output-header").show();
+    $(".output").show();
+    $(".output").addClass("positive-balance");
+    $(".output").text("$" + newBankAccount.balance);
 
     $("#form-deposit").submit(function(event){
       event.preventDefault();
       var depositAmount = parseInt($("#deposit-amount").val());
       newBankAccount.processDeposit(depositAmount);
-      $(".output").empty().append("$" + newBankAccount.balance);
+      if (newBankAccount.balance >= 0) {
+        $(".output").removeClass("negative-balance");
+        $(".output").addClass("positive-balance");
+      } else if (newBankAccount.balance < 0) {
+        $(".output").removeClass("positive-balance");
+        $(".output").addClass("negative-balance");
+      }
+      $(".output").text("$" + newBankAccount.balance);
     });
+
     $("#form-withdrawal").submit(function(event){
       event.preventDefault();
       var withdrawalAmount = parseInt($("#withdrawal-amount").val());
       newBankAccount.processWithdrawal(withdrawalAmount);
-      $(".output").empty().append("$" + newBankAccount.balance);
+      if (newBankAccount.balance >= 0) {
+        $(".output").removeClass("negative-balance");
+        $(".output").addClass("positive-balance");
+      } else if (newBankAccount.balance < 0) {
+        $(".output").removeClass("positive-balance");
+        $(".output").addClass("negative-balance");
+      }
+      $(".output").text("$" + newBankAccount.balance);
     });
   });
 });

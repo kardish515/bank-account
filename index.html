@@ -9,7 +9,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Will and Nick's Credit Union</h1>
+      <div class="jumbotron">
+        <h1>Welcome to Will and Nick's Credit Union</h1>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <form id="formOne">
@@ -17,20 +19,20 @@
             <label for="user-name">Name:</label>
             <input id="user-name" type="text" required><br>
             <label for="initial-deposit">Initial Deposit:</label>
-            <input id="initial-deposit" type="text"><br>
+            <input id="initial-deposit" type="number" min="1"><br>
             <button type="submit" name="button" class="btn btn-info">Submit</button>
           </form>
         </div>
         <div class="col-md-6">
-          <h2>Deposit or withdraw funds:</h2>
           <form id="form-deposit">
+            <h2>Deposit or withdraw funds:</h2>
             <label for="deposit-amount">Deposit Amount:</label>
-            <input id="deposit-amount" type="text"><br>
+            <input id="deposit-amount" type="number" min="1"><br>
             <button type="submit" name="button" class="btn btn-info">Submit</button>
           </form>
           <form id="form-withdrawal">
             <label for="withdrawal-amount">Withdrawal Amount:</label>
-            <input id="withdrawal-amount" type="text"><br>
+            <input id="withdrawal-amount" type="number" min="1"><br>
             <button type="submit" name="button" class="btn btn-info">Submit</button>
           </form>
         </div>

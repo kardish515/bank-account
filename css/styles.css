@@ -1,3 +1,20 @@
-.output, .output-header{
+.output, .output-header {
   display: none;
+}
+
+.output {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.positive-balance {
+  color: green;
+}
+
+.negative-balance {
+  color: red;
+}
+
+#formOne, #form-deposit, #form-withdrawal {
+  background-color: lightblue;
 }
